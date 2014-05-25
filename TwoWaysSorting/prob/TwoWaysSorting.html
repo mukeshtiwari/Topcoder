@@ -1,0 +1,128 @@
+<html>
+<head>
+    <title>TwoWaysSorting</title>
+</head>
+<body>
+<h1><a href="http://community.topcoder.com/tc?module=ProblemDetail&amp;rd=15854&amp;pm=11084">TwoWaysSorting</a></h1>
+
+<p><em>Single Round Match 621 Round 1 - Division II, Level One</em></p>
+
+<h2>Statement</h2>
+
+<p>Sasha has a String[] <em>stringList</em>. No two elements of <em>stringList</em> have the same length.</p>
+
+<p>So far, Sasha has learned two ways of sorting strings:</p>
+
+<p>He can sort strings lexicographically. For example, "car" &lt; "carriage" &lt; "cats" &lt; "doggies". (See Notes for a definition of the lexicographic order.)
+    He can also sort strings according to their lengths in ascending order. For example, "car" &lt; "cats" &lt; "doggies" &lt; "carriage".</p>
+
+<p>Sasha now wonders whether <em>stringList</em> is sorted in either of these two ways. Return "lexicographically" (quotes for clarity) if <em>stringList</em> is sorted lexicographically but not according to the string lengths. Return "lengths" if <em>stringList</em> is sorted according to the string lengths but not lexicographically. Return "both" if it is sorted in both ways. Otherwise, return "none".</p>
+
+<h2>Definitions</h2>
+
+<ul>
+<li><em>Class</em>: <code>TwoWaysSorting</code></li>
+<li><em>Method</em>: <code>sortingMethod</code></li>
+<li><em>Parameters</em>: <code>String[]</code></li>
+<li><em>Returns</em>: <code>String</code></li>
+<li><em>Method signature</em>: <code>String sortingMethod(String[] stringList)</code></li>
+</ul>
+
+
+<h2>Notes</h2>
+
+<ul>
+<li>String A is lexicographically smaller than string B if A contains a character with a smaller ASCII value in the first position where they differ. In case one of the strings ends before they have a different character, the shorter one is considered smaller.</li>
+</ul>
+
+
+<h2>Constraints</h2>
+
+<ul>
+<li><em>stringList</em> will contain between 1 and 50 elements, inclusive.</li>
+<li>Each element of <em>stringList</em> will contain between 1 and 50 characters, inclusive.</li>
+<li>Each character of each element of <em>stringList</em> will be a lowercase English letter ('a'-'z').</li>
+<li>Every two elements of <em>stringList</em> will have different lengths.</li>
+</ul>
+
+
+<h2>Examples</h2>
+
+<h3>Example 1</h3>
+
+<h4>Input</h4>
+
+<p><c>["a", "aa", "bbb"]</c></p>
+
+<h4>Output</h4>
+
+<p><c>"both"</c></p>
+
+<h4>Reason</h4>
+
+<p>These strings are sorted both lexicographically and according to their lengths.</p>
+
+<h3>Example 2</h3>
+
+<h4>Input</h4>
+
+<p><c>["c", "bb", "aaa"]</c></p>
+
+<h4>Output</h4>
+
+<p><c>"lengths"</c></p>
+
+<h4>Reason</h4>
+
+<p>The lengths of these strings are in ascending order. However, they are not sorted lexicographically as, for instance, "aaa" is lexicographically smaller than "c".</p>
+
+<h3>Example 3</h3>
+
+<h4>Input</h4>
+
+<p><c>["etdfgfh", "aio"]</c></p>
+
+<h4>Output</h4>
+
+<p><c>"none"</c></p>
+
+<h4>Reason</h4>
+
+<p>Here the first string is longer than the second one, so they are not sorted according to length. (Note that we require the lengths to be in ascending order.) Similarly, they are not sorted lexicographically: "aio" should come before "etdfgfh".</p>
+
+<h3>Example 4</h3>
+
+<h4>Input</h4>
+
+<p><c>["aaa", "z"]</c></p>
+
+<h4>Output</h4>
+
+<p><c>"lexicographically"</c></p>
+
+<h4>Reason</h4>
+
+<p>The input strings are sorted lexicographically only.</p>
+
+<h3>Example 5</h3>
+
+<h4>Input</h4>
+
+<p><c>["z"]</c></p>
+
+<h4>Output</h4>
+
+<p><c>"both"</c></p>
+
+<h3>Example 6</h3>
+
+<h4>Input</h4>
+
+<p><c>["abcdef", "bcdef", "cdef", "def", "ef", "f", "topcoder"]</c></p>
+
+<h4>Output</h4>
+
+<p><c>"lexicographically"</c></p>
+
+</body>
+</html>
