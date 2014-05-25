@@ -1,0 +1,110 @@
+<html>
+<head>
+    <title>NumbersChallenge</title>
+</head>
+<body>
+<h1><a href="http://community.topcoder.com/tc?module=ProblemDetail&amp;rd=15854&amp;pm=13166">NumbersChallenge</a></h1>
+
+<p><em>Single Round Match 621 Round 1 - Division II, Level Two</em></p>
+
+<h2>Statement</h2>
+
+<p>Your friend Lucas gave you a sequence <em>S</em> of positive integers.</p>
+
+<p>For a while, you two played a simple game with <em>S</em>:
+Lucas would pick a number, and you had to select some elements of <em>S</em> such that the sum of all numbers you selected is the number chosen by Lucas.
+For example, if <em>S</em>={2,1,2,7} and Lucas chose the number 11, you would answer that 2+2+7 = 11.</p>
+
+<p>Lucas now wants to trick you by choosing a number X such that there will be no valid answer.
+For example, if <em>S</em>={2,1,2,7}, it is not possible to select elements of <em>S</em> that sum up to 6.</p>
+
+<p>You are given the int[] <em>S</em>.
+Find the smallest positive integer X that cannot be obtained as the sum of some (possibly all) elements of <em>S</em>.</p>
+
+<h2>Definitions</h2>
+
+<ul>
+<li><em>Class</em>: <code>NumbersChallenge</code></li>
+<li><em>Method</em>: <code>MinNumber</code></li>
+<li><em>Parameters</em>: <code>int[]</code></li>
+<li><em>Returns</em>: <code>int</code></li>
+<li><em>Method signature</em>: <code>int MinNumber(int[] S)</code></li>
+</ul>
+
+
+<h2>Constraints</h2>
+
+<ul>
+<li><em>S</em> will contain between 1 and 20 elements, inclusive.</li>
+<li>Each element of <em>S</em> will be between 1 and 100,000, inclusive.</li>
+</ul>
+
+
+<h2>Examples</h2>
+
+<h3>Example 1</h3>
+
+<h4>Input</h4>
+
+<p><c>[5, 1, 2]</c></p>
+
+<h4>Output</h4>
+
+<p><c>4</c></p>
+
+<h4>Reason</h4>
+
+<p>These are all the positive integers that can be obtained: 1, 2, 3, 5, 6, 7, and 8.
+(We can obtain 3 as 1+2, 6 as 1+5, 7 as 2+5, and 8 as 1+2+5.)
+The smallest positive integer not present in the above list is 4.</p>
+
+<h3>Example 2</h3>
+
+<h4>Input</h4>
+
+<p><c>[2, 1, 4]</c></p>
+
+<h4>Output</h4>
+
+<p><c>8</c></p>
+
+<h4>Reason</h4>
+
+<p>We can obtain each of the sums from 1 to 7, inclusive. The smallest impossible sum is 8.</p>
+
+<h3>Example 3</h3>
+
+<h4>Input</h4>
+
+<p><c>[2, 1, 2, 7]</c></p>
+
+<h4>Output</h4>
+
+<p><c>6</c></p>
+
+<h4>Reason</h4>
+
+<p>The example given in the problem statement.</p>
+
+<h3>Example 4</h3>
+
+<h4>Input</h4>
+
+<p><c>[94512, 2, 87654, 81316, 6, 5, 6, 37151, 6, 139, 1, 36, 307, 1, 377, 101, 8, 37, 58, 1]</c></p>
+
+<h4>Output</h4>
+
+<p><c>1092</c></p>
+
+<h3>Example 5</h3>
+
+<h4>Input</h4>
+
+<p><c>[883, 66392, 3531, 28257, 1, 14131, 57, 1, 25, 88474, 4, 1, 110, 6, 1769, 220, 442, 7064, 7, 13]</c></p>
+
+<h4>Output</h4>
+
+<p><c>56523</c></p>
+
+</body>
+</html>
