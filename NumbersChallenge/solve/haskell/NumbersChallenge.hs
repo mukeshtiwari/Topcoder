@@ -2,8 +2,6 @@ module NumbersChallenge where
 import Data.List
 import Control.Monad
 
-powerSet :: [ Int ] -> [ Int ]
-powerSet  = tail . nub .  map sum . filterM ( const [ True, False ] )
 
 minNumber :: [Int] -> Int
 minNumber s = solve ( sort s ) 1 where
