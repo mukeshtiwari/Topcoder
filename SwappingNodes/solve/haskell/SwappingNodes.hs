@@ -1,32 +1,14 @@
 module SwappingNodes where
 
-
-compareList :: [Int] -> [Int] -> ([Int], [Int])
-compareList (x : xs) (y : ys)
-  | y < x = (y : ys, x : xs)
-  | otherwise = (x : xs, y : ys)
-
-
-combineList :: [Int] -> [Int] -> [Int]
-combineList  = (++)
-
-solveRecursively :: [Int] -> [Int] -> Int -> [Int]
-solveRecursively [] [] _ = []
-solveRecursively [x] [] _ = [x]
-solveRecursively [] [y] _ = [y]
-solveRecursively [x] [y] _ =
-  let (first, second) = compareList [x] [y] in 
-  combineList first second
-solveRecursively xs ys n = 
-  let (xs', ys') = splitAt (div n 2) xs in 
-  let (xs'', ys'') = splitAt (div n 2) ys in 
-  let fh = solveRecursively xs' ys' (div n 2) in
-  let sh = solveRecursively xs'' ys'' (div n 2) in 
-  let (first, second) = compareList fh sh in 
-  combineList first second      
-
+solveRecursive :: [Int] -> Int -> [Int]
+solveRecursive []  _ = []
+solveRecursive [x] _ = [x]
+solveRecursive xs n = ret where
+  n' = div n 2
+  (xs', ys') = splitAt n' xs
+  u@(x : xs'') = solveRecursive xs' n'
+  v@(y : ys'') = solveRecursive ys' n'
+  ret = if x < y then u ++ v else v ++ u
 
 swapNodes :: [Int] -> Int -> [Int]
-swapNodes leaves numberOfLeaves =
-  let (first, second) = splitAt (div numberOfLeaves 2) leaves in
-  solveRecursively first second (div numberOfLeaves 2)
+swapNodes leaves numberOfLeaves = solveRecursive leaves numberOfLeaves 
