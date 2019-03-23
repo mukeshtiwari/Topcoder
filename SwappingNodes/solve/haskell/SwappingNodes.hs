@@ -2,10 +2,10 @@ module SwappingNodes where
 
 
 compareList :: [Int] -> [Int] -> ([Int], [Int])
-compareList (x : xs) (y : ys) = 
-  case y < x of
-   True -> (y : ys, x : xs)
-   False -> (x : xs, y : ys)
+compareList (x : xs) (y : ys)
+  | y < x = (y : ys, x : xs)
+  | otherwise = (x : xs, y : ys)
+
 
 combineList :: [Int] -> [Int] -> [Int]
 combineList  = (++)
