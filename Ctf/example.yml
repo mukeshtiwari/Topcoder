@@ -1,0 +1,9 @@
+# Send this to the server like this:
+# netcat $IP $PORT < example.yml
+cool:
+    - cybears
+    - dinos
+
+lame:
+    - deceptive_cons
+    - megabutts
