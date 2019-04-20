@@ -1,0 +1,117 @@
+<html>
+<head>
+    <title>CycleLength</title>
+</head>
+<body>
+<h1><a href="/tc?module=ProblemDetail&amp;rd=17396&amp;pm=15287">CycleLength</a></h1>
+
+<p><em>TCO19 SRM 747 Round 1 - Division II, Level Two</em></p>
+
+<h2>Statement</h2>
+
+<p>Hermi has read somewhere that one of the measures of quality for a pseudorandom generator is the length of its period.
+Help him test some simple generators for this property.</p>
+
+<p>Formally, the period length of an infinite sequence { A[0], A[1], A[2], ... } is the smallest positive integer p such that starting from some n=n0 we have A[n+p] = A[n] for all n.
+Of course, some infinite sequences don't have any period, but those in this problem will all have some finite periods.</p>
+
+<p>Note that the period doesn't have to start right at the beginning of the sequence.
+For example, suppose we have the sequence { 4, 7, 1024, 15, 1, 2, 3, 1, 2, 3, 1, 2, 3, ... } that goes on by repeating 1, 2, 3 forever.
+The length of the period of this sequence is 3.</p>
+
+<p>Hermi's generators are linear congruential generators.
+You are given the parameters of one generator: the ints <em>seed</em>, <em>a</em>, <em>b</em>, and <em>m</em>.
+The generator itself is shown below.
+Compute and return the length of its period.</p>
+
+<p>state = seed
+while True:
+    print(state)
+    state = (state * a + b) modulo m</p>
+
+<h2>Definitions</h2>
+
+<ul>
+<li><em>Class</em>: <code>CycleLength</code></li>
+<li><em>Method</em>: <code>solve</code></li>
+<li><em>Parameters</em>: <code>int, int, int, int</code></li>
+<li><em>Returns</em>: <code>int</code></li>
+<li><em>Method signature</em>: <code>int solve(int seed, int a, int b, int m)</code></li>
+</ul>
+
+
+<h2>Notes</h2>
+
+<ul>
+<li>It can be shown that the output of the generator always has a finite period.</li>
+</ul>
+
+
+<h2>Constraints</h2>
+
+<ul>
+<li><em>m</em> will be between 1 and 10<sup>6</sup>, inclusive.</li>
+<li><em>seed</em>, <em>a</em> and <em>b</em> will each be between 0 and <em>m</em>-1, inclusive.</li>
+</ul>
+
+
+<h2>Examples</h2>
+
+<h3>Example 1</h3>
+
+<h4>Input</h4>
+
+<p><c>7,<br />3,<br />4,<br />10</c></p>
+
+<h4>Output</h4>
+
+<p><c>4</c></p>
+
+<h4>Reason</h4>
+
+<p>The generated sequence is {7, 5, 9, 1, 7, 5, 9, 1, 7, 5, 9, 1, ...} and its period length is 4.</p>
+
+<h3>Example 2</h3>
+
+<h4>Input</h4>
+
+<p><c>1,<br />2,<br />0,<br />997</c></p>
+
+<h4>Output</h4>
+
+<p><c>332</c></p>
+
+<h4>Reason</h4>
+
+<p>The sequence begins {1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 27, ...}. Eventually it starts repeating itself.</p>
+
+<h3>Example 3</h3>
+
+<h4>Input</h4>
+
+<p><c>47,<br />0,<br />23,<br />100</c></p>
+
+<h4>Output</h4>
+
+<p><c>1</c></p>
+
+<h4>Reason</h4>
+
+<p>The sequence {47, 23, 23, 23, 23, 23, 23, 23, 23, ...} has period length 1.</p>
+
+<h3>Example 4</h3>
+
+<h4>Input</h4>
+
+<p><c>548687,<br />538918,<br />376524,<br />931161</c></p>
+
+<h4>Output</h4>
+
+<p><c>690</c></p>
+
+<h4>Reason</h4>
+
+<p>Watch out for integer overflow when generating the sequence! The correct first few elements of this sequence are { 548687, 52352, 564521, 120560, 571829, 653435, 861713, 684494, 565739, 54179, 930530, 193031, ... }</p>
+
+</body>
+</html>
