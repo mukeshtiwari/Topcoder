@@ -1,0 +1,103 @@
+<html>
+<head>
+    <title>OneHandSort</title>
+</head>
+<body>
+<h1><a href="/tc?module=ProblemDetail&amp;rd=17457&amp;pm=15416">OneHandSort</a></h1>
+
+<p><em>TCO19 SRM 755 SRM 755 - Division I, Level One</em></p>
+
+<h2>Statement</h2>
+
+<p>Misof recently had an accident in which he managed to cut his left hand on some broken glass. He is now "all right" - meaning that he can only use his right hand for a while. Help him with some issues he has.</p>
+
+<p>Misof needs to sort the objects on his shelf. The shelf has N+1 slots, numbered 0 through N from the left to the right. Slot N is currently empty and it should be empty once the shelf is sorted. Slots 0 through N-1 contain objects: for each i, slot i currently contains an object that belongs into slot <em>target</em>[i].</p>
+
+<p>As Misof only has one working hand, he can only rearrange the shelf in one way: he can pick up any object and move it from its current slot into the one slot that is currently empty.</p>
+
+<p>You are given the int[] <em>target</em> with at most 500 elements. Find any sequence of at most 1500 actions that will sort the shelf. Return a int[] containing instructions for Misof. Each element x of the return value represents the instruction "pick up the element that is currently in slot x and move it into the slot that is currently empty".</p>
+
+<h2>Definitions</h2>
+
+<ul>
+<li><em>Class</em>: <code>OneHandSort</code></li>
+<li><em>Method</em>: <code>sortShelf</code></li>
+<li><em>Parameters</em>: <code>int[]</code></li>
+<li><em>Returns</em>: <code>int[]</code></li>
+<li><em>Method signature</em>: <code>int[] sortShelf(int[] target)</code></li>
+</ul>
+
+
+<h2>Notes</h2>
+
+<ul>
+<li>While sorting the shelf. Misof can (and often has to) move some of the objects more than once.</li>
+<li>You are not required to minimize the number of moves.</li>
+</ul>
+
+
+<h2>Constraints</h2>
+
+<ul>
+<li>N will be between 1 and 500, inclusive.</li>
+<li><em>target</em> will contain exactly N elements.</li>
+<li>Each element of <em>target</em> will be between 0 and N-1, inclusive.</li>
+<li>All elements of <em>target</em> will be distinct.</li>
+</ul>
+
+
+<h2>Examples</h2>
+
+<h3>Example 1</h3>
+
+<h4>Input</h4>
+
+<p><c>[0, 1, 2]</c></p>
+
+<h4>Output</h4>
+
+<p><c>[ ]</c></p>
+
+<h4>Reason</h4>
+
+<p>The shelf is already sorted, Misof can simply do nothing.</p>
+
+<h3>Example 2</h3>
+
+<h4>Input</h4>
+
+<p><c>[1, 2, 3, 0]</c></p>
+
+<h4>Output</h4>
+
+<p><c>[2, 1, 0, 3, 4 ]</c></p>
+
+<h4>Reason</h4>
+
+<p>In the beginning, the shelf looks as follows:</p>
+
+<p>| 1 | 2 | 3 | 0 |   |
++---+---+---+---+---+</p>
+
+<p>The return value describes the following solution:</p>
+
+<p>Misof moves the object from slot 2. (This is the object that belongs into slot 3. Misof moves it to the empty slot 4.)
+Misof moves the object from slot 1. (This is the object that belongs into slot 2. Misof moves it to the empty slot 2, where it belongs.)
+Misof moves the object from slot 0. (This is the object that belongs into slot 1. Misof moves it to the empty slot 1, where it belongs.)
+Misof moves the object from slot 3. (This is the object that belongs into slot 0. Misof moves it to the empty slot 0, where it belongs.)
+Misof moves the object from slot 4. (This is the object that belongs into slot 3 - the one we already moved once at the beginning. Misof moves it to the empty slot 3, where it belongs.)</p>
+
+<p>Other valid solutions exist.</p>
+
+<h3>Example 3</h3>
+
+<h4>Input</h4>
+
+<p><c>[1, 0, 3, 2]</c></p>
+
+<h4>Output</h4>
+
+<p><c>[0, 1, 4, 2, 3, 4 ]</c></p>
+
+</body>
+</html>
