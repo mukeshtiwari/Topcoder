@@ -13,9 +13,35 @@
 using namespace std;
 
 class OneHandRoadPainting {
-    public:
+
+  public:
+    long long solve(vector<pair<int, int> > vzip, int paintPerBrush)
+    {
+      int n = vzip.size();
+      long long ans = 0;
+      for (int i = 0; i < n; i++)
+      {
+        div_t res = div(vzip[i].first - vzip[i].second, paintPerBrush);
+        int numseg = res.quot, restseg = res.rem;
+        if (numseg == 0 && restseg == 0) ans += 0; // This case is not possilbe
+        else if (numseg != 0 && restseg == 0)
+            ans = ans + (long long) 2 * sumAP(vzip.[i].first, numseg, -paintPerBrush);
+        else if (numseg == 0 && restseg != 0)
+        {
+            
+
+
+      }
+      return 0;
+
+    }
+
     long long fastest(vector<int> dStart, vector<int> dEnd, int paintPerBrush) {
-        return 0;
+      vector<pair<int, int> > vzip;
+      int n = dStart.size();
+      for (int i = 0; i <= n; i++) vzip.push_back(make_pair(dEnd[i], dStart[i]));
+      reverse(vzip.begin(), vzip.end());
+      return solve(vzip, paintPerBrush);
     }
 };
 

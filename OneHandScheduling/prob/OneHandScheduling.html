@@ -1,0 +1,121 @@
+<html>
+<head>
+    <title>OneHandScheduling</title>
+</head>
+<body>
+<h1><a href="/tc?module=ProblemDetail&amp;rd=17457&amp;pm=15415">OneHandScheduling</a></h1>
+
+<p><em>TCO19 SRM 755 SRM 755 - Division II, Level One</em></p>
+
+<h2>Statement</h2>
+
+<p>Misof recently had an accident in which he managed to cut his left hand on some broken glass. He is now "all right" - meaning that he can only use his right hand for a while. Help him with some issues he has.</p>
+
+<p>Misof needs to do some tasks. Each of the tasks has to be done during a specific time interval, and it requires constant use of his only hand. Find out whether he can do all the tasks.</p>
+
+<p>You are given the int[]s <em>tStart</em> and <em>tEnd</em>, each with N elements. For each i between 0 and N-1, inclusive, <em>tStart</em>[i] is the timestamp of the beginning and <em>tEnd</em>[i] the timestamp of the end of task i.</p>
+
+<p>(All timestamps are in seconds, with timestamp 0 being the midnight today.)</p>
+
+<p>For each task, Misof needs his hand for the entire interval of time, including both endpoints. That is, if one task ends exactly at the same time at which another task begins, Misof cannot do both of them.</p>
+
+<p>Return "possible" (quotes for clarity) if Misof can do all the tasks and "impossible" if he cannot do that.</p>
+
+<h2>Definitions</h2>
+
+<ul>
+<li><em>Class</em>: <code>OneHandScheduling</code></li>
+<li><em>Method</em>: <code>checkSchedule</code></li>
+<li><em>Parameters</em>: <code>int[], int[]</code></li>
+<li><em>Returns</em>: <code>String</code></li>
+<li><em>Method signature</em>: <code>String checkSchedule(int[] tStart, int[] tEnd)</code></li>
+</ul>
+
+
+<h2>Notes</h2>
+
+<ul>
+<li>You are not given the value N explicitly. Instead, you can determine it by looking at the number of elements in <em>tStart</em> (or <em>tEnd</em>).</li>
+<li>Note that the return value is case-sensitive.</li>
+</ul>
+
+
+<h2>Constraints</h2>
+
+<ul>
+<li>N will be between 1 and 10, inclusive.</li>
+<li><em>tStart</em> and <em>tEnd</em> will each contain exactly N elements.</li>
+<li>Each element of <em>tStart</em> and <em>tEnd</em> will be between 0 and 1,000,000, inclusive.</li>
+<li>For each i, <em>tStart</em>[i] will be less than <em>tEnd</em>[i].</li>
+</ul>
+
+
+<h2>Examples</h2>
+
+<h3>Example 1</h3>
+
+<h4>Input</h4>
+
+<p><c>[10, 100, 236],<br />[47, 235, 347]</c></p>
+
+<h4>Output</h4>
+
+<p><c>"possible"</c></p>
+
+<h4>Reason</h4>
+
+<p>Task 0 starts at timestamp 10 and ends at timestamp 47.
+Task 1 starts at timestamp 100 and ends at timestamp 235.
+Task 2 starts at timestamp 236 and ends at timestamp 347.
+Misof can do all of them.</p>
+
+<h3>Example 2</h3>
+
+<h4>Input</h4>
+
+<p><c>[100, 236, 10],<br />[235, 347, 47]</c></p>
+
+<h4>Output</h4>
+
+<p><c>"possible"</c></p>
+
+<h4>Reason</h4>
+
+<p>The same three tasks as in Example #0, just given in another order. The answer remains the same.</p>
+
+<h3>Example 3</h3>
+
+<h4>Input</h4>
+
+<p><c>[10, 20],<br />[20, 30]</c></p>
+
+<h4>Output</h4>
+
+<p><c>"impossible"</c></p>
+
+<h4>Reason</h4>
+
+<p>These two tasks overlap, so Misof cannot do both of them.</p>
+
+<h3>Example 4</h3>
+
+<h4>Input</h4>
+
+<p><c>[10, 400000, 500000],<br />[20, 600000, 700000]</c></p>
+
+<h4>Output</h4>
+
+<p><c>"impossible"</c></p>
+
+<h3>Example 5</h3>
+
+<h4>Input</h4>
+
+<p><c>[1, 40, 50, 60],<br />[1000000, 41, 51, 61]</c></p>
+
+<h4>Output</h4>
+
+<p><c>"impossible"</c></p>
+
+</body>
+</html>
