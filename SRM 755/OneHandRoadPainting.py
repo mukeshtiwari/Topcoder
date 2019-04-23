@@ -1,9 +1,50 @@
 # -*- coding: utf-8 -*-
 import math,string,itertools,fractions,heapq,collections,re,array,bisect
 
+#Python is way more cleaner than C++
 class OneHandRoadPainting:
+
+    def sumAP(self, a, n, d):
+            return  (n * (2 * a + (n - 1) * d)) / 2
+
+    def sliceSeg(self, izip, paintPerBrush):
+        if (izip == []): return izip
+        (endseg, begseg), rest = izip[0], izip[1::]
+        if (paintPerBrush >= endseg - begseg):
+            return self.sliceSeg(izip[1::], paintPerBrush - (endseg - begseg))
+        else:
+            return [tuple ((endseg - paintPerBrush, begseg))] + izip[1::]
+
+
+    def solve(self, izip, paintPerBrush):
+        if (izip == []):
+            return 0
+        else:
+            (endseg, begseg), rest = izip[0], izip[1::]
+            (numseg, restseg) = divmod(endseg - begseg, paintPerBrush)
+            if numseg == 0 and restseg == 0 : 
+                raise Exception("This should not have had happened")
+            elif numseg != 0 and restseg == 0 :
+                return (2 * self.sumAP(endseg, numseg, -paintPerBrush) 
+                        + self.solve(izip[1::], paintPerBrush))
+            elif numseg == 0 and restseg != 0 :
+                #slice the part which can be painted
+                rest = self.sliceSeg(izip, paintPerBrush)
+                return (2 * endseg + self.solve(rest, paintPerBrush))
+            else:
+                #get rid of painted segment and simulat the rest
+                tzip = [tuple ((endseg - numseg * paintPerBrush, begseg))] + izip[1::]
+                rest = self.sliceSeg(tzip, paintPerBrush)
+                return (2 * self.sumAP(endseg, numseg, -paintPerBrush) + 
+                        2 * (endseg - numseg * paintPerBrush) + self.solve(rest, paintPerBrush))
+
+
+
+
     def fastest(self, dStart, dEnd, paintPerBrush):
-        return 0
+        izip = zip(dEnd, dStart)[::-1] #zip the list, and reverse it
+        return self.solve(izip, paintPerBrush)
+
 
 # CUT begin
 # TEST CODE FOR PYTHON {{{
