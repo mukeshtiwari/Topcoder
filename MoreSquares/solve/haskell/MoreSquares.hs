@@ -29,8 +29,8 @@ countLocations :: Int -> Int -> Int -> [Int] -> [Int] -> Int
 countLocations n sX sY xprefix yprefix = ret where 
   xlast = List.last xprefix
   ylast = List.last yprefix
-  x = List.take n (xprefix ++ iterate (\x -> mod (x * 47 + 42) sX) xlast)
-  y = List.take n (yprefix ++ iterate (\x -> mod (x * 47 + 42) sY) ylast)
+  x = List.take n (xprefix ++ (List.tail . iterate (\x -> mod (x * 47 + 42) sX) $ xlast))
+  y = List.take n (yprefix ++ (List.tail . iterate (\x -> mod (x * 47 + 42) sY) $ ylast))
   s = Set.fromList (zip x y)
   ppoint = Set.toList s
   zippoint = [(p, q) | p <- ppoint, q <- ppoint, p /= q]
